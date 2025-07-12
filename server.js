@@ -6,7 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 10000;
 
 // החלף את שם המשתמש שלך בטיקטוק כאן
-const TIKTOK_USERNAME = 'k3noxfn';
+const TIKTOK_USERNAME = 'lookatsnoke';
 const TIKTOK_LIVE_URL = `https://www.tiktok.com/@${TIKTOK_USERNAME}/live`;
 
 // הפעלת CORS
