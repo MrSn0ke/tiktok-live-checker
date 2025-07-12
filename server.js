@@ -26,7 +26,7 @@ app.get('/is-live', async (req, res) => {
       },
     });
 
-    const isLive = response.data.includes('LIVE') || response.data.includes('isLive":true');
+    const isLive = response.data.includes('liveRoomId') || response.data.includes('isLive":true');
     res.json({ live: isLive });
   } catch (error) {
     console.error('שגיאה בבדיקה:', error.message);
