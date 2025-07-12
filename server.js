@@ -3,7 +3,7 @@ const axios = require('axios');
 const app = express();
 
 const PORT = process.env.PORT;
-const TIKTOK_USERNAME = 'ahevery'; // שנה כאן לשם המשתמש שלך
+const TIKTOK_USERNAME = 'k3noxfn'; // שנה כאן לשם המשתמש שלך
 const TIKTOK_LIVE_URL = `https://www.tiktok.com/@${TIKTOK_USERNAME}/live`;
 
 // דף הבית
