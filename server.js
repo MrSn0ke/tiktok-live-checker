@@ -1,23 +1,29 @@
 const express = require('express');
 const axios = require('axios');
+const cors = require('cors');
 const app = express();
 
-const PORT = process.env.PORT;
-const TIKTOK_USERNAME = 'k3noxfn'; // שנה כאן לשם המשתמש שלך
+const PORT = process.env.PORT || 10000;
+
+// החלף את שם המשתמש שלך בטיקטוק כאן
+const TIKTOK_USERNAME = 'k3noxfn';
 const TIKTOK_LIVE_URL = `https://www.tiktok.com/@${TIKTOK_USERNAME}/live`;
 
-// דף הבית
+// הפעלת CORS
+app.use(cors());
+
+// דף ברירת מחדל – שלא תראה "Not Found"
 app.get('/', (req, res) => {
-  res.send('👋 השרת באוויר! כדי לבדוק אם אתה בלייב גש ל: /is-live');
+  res.send('👋 השרת פועל! כדי לבדוק סטטוס לייב גש ל: /is-live');
 });
 
-// בדיקה אם בלייב
+// בדיקת לייב
 app.get('/is-live', async (req, res) => {
   try {
     const response = await axios.get(TIKTOK_LIVE_URL, {
       headers: {
-        'User-Agent': 'Mozilla/5.0'
-      }
+        'User-Agent': 'Mozilla/5.0',
+      },
     });
 
     const isLive = response.data.includes('LIVE');
@@ -28,6 +34,7 @@ app.get('/is-live', async (req, res) => {
   }
 });
 
+// התחלת שרת
 app.listen(PORT, () => {
   console.log(`✅ Server is running on port ${PORT}`);
 });
